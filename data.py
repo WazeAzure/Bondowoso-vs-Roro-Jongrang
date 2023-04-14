@@ -2,22 +2,22 @@ import argparse
 import os
 from globals import *
 
-def load_file() -> None : 
+def load_folder() -> None : 
     parser = argparse.ArgumentParser()
     parser.add_argument("nama_folder", help= "validasi nama folder", nargs = '?', default = "")
     arg = parser.parse_args()
     folder = arg.nama_folder
-    if os.path.isdir("./file_external/" + folder) :
+    if folder == "" : 
+        print("Tidak ada nama folder yang diberikan!")
+        print("Usage: python main.py <nama_folder>")
+        quit()
+    elif os.path.isdir("./file_external/" + folder) :
         print("Loading...")
         load(folder,"user.csv", users)
         load(folder,"candi.csv", candi)
         load(folder,"bahan_bangunan.csv", bahan_bangunan)
         print("Selamat datang di program “Manajerial Candi”")
         print("Silakan masukkan username Anda")
-    elif folder == "" : 
-        print("Tidak ada nama folder yang diberikan!")
-        print("Usage: python main.py <nama_folder>")
-        quit()
     else : 
         print(f'Folder {folder} tidak ditemukan.')
         quit()

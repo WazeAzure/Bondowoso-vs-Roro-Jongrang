@@ -1,8 +1,10 @@
+from globals import *
+
 def validasi_search(users : list, username : str) -> int :
   i = 0 
   while i < Nmax and users[i] != [Mark for i in range(Nmax)] :
     if username == users[i][user_id] : 
-       return i 
+      return i 
     i += 1 
   return -1
 

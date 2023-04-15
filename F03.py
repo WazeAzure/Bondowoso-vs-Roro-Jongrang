@@ -1,10 +1,14 @@
 from globals import *
 from util import atribut_line_idx
 
-def isiJin(username : str , password : str, tipe_jin : str , jin_index : int,  matrix : list ) -> list :
-  matrix[jin_index][idx_username] = username
-  matrix[jin_index][idx_password] = password 
-  matrix[jin_index][idx_role] = tipe_jin
+def isiJin(username : str , password : str, tipe_jin : str, matrix : list ) -> list :
+  i = 0
+  while i < Nmax : 
+    if matrix[i] != [Mark for k in range(3)] : 
+      matrix[i][idx_username] = username
+      matrix[i][idx_password] = password 
+      matrix[i][idx_role] = tipe_jin
+      return matrix
 
 def summonjin() -> None : 
   print("Jenis jin yang dapat dipanggil: \n"
@@ -37,9 +41,9 @@ def summonjin() -> None :
     else :
       break
   
-  isiJin(username, password , tipe_jin , jin_index, users)  
+  isiJin(username, password , tipe_jin , users)  
   print("Mengumpulkan sesajen...")
   print("Menyerahkan sesajen...")
   print("Membacakan mantra...")
   print(f"Jin {username} berhasil dipanggil!")
-  
+
